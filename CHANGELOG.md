@@ -19,6 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - コードオーナー設定
 - 依存関係レビューワークフロー
 
+### Fixed
+- GitHub Actionsでのマニフェストファイルパス解決の問題を修正
+  - PyInstallerビルド時に絶対パスを使用するように変更
+  - マニフェストファイルの存在確認ステップを追加
+
 ## [1.0.1] - 2026-02-14
 
 ### Fixed

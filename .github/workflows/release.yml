@@ -44,9 +44,20 @@ jobs:
         black --check src/
         pytest tests/ -q
 
+    - name: Verify manifest file
+      run: |
+        if (Test-Path "app.manifest") {
+          Write-Host "✓ app.manifest found"
+        } else {
+          Write-Host "✗ app.manifest not found"
+          exit 1
+        }
+
     - name: Build EXE
       run: |
         Write-Host "Building EXE..."
+        $manifestPath = Join-Path $PWD "app.manifest"
+        Write-Host "Manifest path: $manifestPath"
         pyinstaller `
           --name=NetworkAdapterSwitcher `
           --onefile `
@@ -56,7 +67,7 @@ jobs:
           --hidden-import=tkinter `
           --hidden-import=tkinter.ttk `
           --hidden-import=tkinter.messagebox `
-          --manifest=app.manifest `
+          --manifest="$manifestPath" `
           src\main.py
 
     - name: Verify build
