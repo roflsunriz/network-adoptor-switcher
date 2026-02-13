@@ -18,7 +18,7 @@
 
 1. **GitHub Security Advisory**（推奨）
    - リポジトリの「Security」タブ → 「Report a vulnerability」
-   - https://github.com/UserName/net-adaptor-change/security/advisories
+   - https://github.com/roflsunriz/network-adaptor-switcher/security/advisories
 
 2. **直接連絡**
    - メールで報告する場合はプライベートで連絡してください
@@ -65,4 +65,4 @@
 
 ---
 
-このポリシーに関する質問がある場合は、[Discussions](https://github.com/UserName/net-adaptor-change/discussions)で質問してください。
+このポリシーに関する質問がある場合は、[Discussions](https://github.com/roflsunriz/network-adaptor-switcher/discussions)で質問してください。

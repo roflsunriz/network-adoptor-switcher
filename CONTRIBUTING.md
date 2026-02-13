@@ -12,15 +12,15 @@
 
 バグを発見した場合：
 
-1. [Issues](https://github.com/UserName/net-adaptor-change/issues)で既存の報告を検索
-2. 見つからない場合、[バグ報告テンプレート](https://github.com/UserName/net-adaptor-change/issues/new?template=bug_report.md)を使用して新しいIssueを作成
+1. [Issues](https://github.com/roflsunriz/network-adaptor-switcher/issues)で既存の報告を検索
+2. 見つからない場合、[バグ報告テンプレート](https://github.com/roflsunriz/network-adaptor-switcher/issues/new?template=bug_report.md)を使用して新しいIssueを作成
 
 ### 機能提案
 
 新機能を提案する場合：
 
-1. [Issues](https://github.com/UserName/net-adaptor-change/issues)で既存の提案を検索
-2. [機能要望テンプレート](https://github.com/UserName/net-adaptor-change/issues/new?template=feature_request.md)を使用して新しいIssueを作成
+1. [Issues](https://github.com/roflsunriz/network-adaptor-switcher/issues)で既存の提案を検索
+2. [機能要望テンプレート](https://github.com/roflsunriz/network-adaptor-switcher/issues/new?template=feature_request.md)を使用して新しいIssueを作成
 3. コミュニティからのフィードバックを待つ
 
 ### プルリクエスト
@@ -35,8 +35,8 @@
 
 ```powershell
 # 1. リポジトリをクローン
-git clone https://github.com/your-username/net-adaptor-change.git
-cd net-adaptor-change
+git clone https://github.com/your-username/network-adaptor-switcher.git
+cd network-adaptor-switcher
 
 # 2. 仮想環境を作成
 python -m venv venv
@@ -123,7 +123,7 @@ pytest tests/
 ## プロジェクト構造
 
 ```
-net-adaptor-change/
+network-adaptor-switcher/
 ├── src/
 │   ├── main.py              # エントリーポイント
 │   ├── network_manager.py   # ネットワーク管理
@@ -141,8 +141,8 @@ net-adaptor-change/
 
 ## 質問がある場合
 
-- [Discussions](https://github.com/UserName/net-adaptor-change/discussions)で質問してください
-- [Issues](https://github.com/UserName/net-adaptor-change/issues)で既存の議論を確認
+- [Discussions](https://github.com/roflsunriz/network-adaptor-switcher/discussions)で質問してください
+- [Issues](https://github.com/roflsunriz/network-adaptor-switcher/issues)で既存の議論を確認
 
 ## ライセンス
 

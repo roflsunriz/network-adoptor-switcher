@@ -1,7 +1,7 @@
 # ネットワークアダプター切り替えツール
 
-[![CI](https://github.com/UserName/net-adaptor-change/actions/workflows/ci.yml/badge.svg)](https://github.com/UserName/net-adaptor-change/actions/workflows/ci.yml)
-[![Release](https://github.com/UserName/net-adaptor-change/actions/workflows/release.yml/badge.svg)](https://github.com/UserName/net-adaptor-change/actions/workflows/release.yml)
+[![CI](https://github.com/roflsunriz/network-adaptor-switcher/actions/workflows/ci.yml/badge.svg)](https://github.com/roflsunriz/network-adaptor-switcher/actions/workflows/ci.yml)
+[![Release](https://github.com/roflsunriz/network-adaptor-switcher/actions/workflows/release.yml/badge.svg)](https://github.com/roflsunriz/network-adaptor-switcher/actions/workflows/release.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)](https://www.microsoft.com/windows)
@@ -68,7 +68,7 @@ pip install -r requirements.txt
 
 ```powershell
 # PowerShellを管理者として起動してから
-cd C:\Users\UserName\Documents\net-adaptor-change
+cd C:\Users\UserName\Documents\network-adaptor-switcher
 .\venv\Scripts\Activate.ps1
 python src/main.py
 ```
@@ -80,11 +80,11 @@ python src/main.py
 3. 「ショートカット」タブ → 「詳細設定」→ 「管理者として実行」にチェック
 4. 「リンク先」を以下のように編集：
    ```
-   C:\Users\UserName\Documents\net-adaptor-change\venv\Scripts\pythonw.exe "C:\Users\UserName\Documents\net-adaptor-change\src\main.py"
+   C:\Users\UserName\Documents\network-adaptor-switcher\venv\Scripts\pythonw.exe "C:\Users\UserName\Documents\network-adaptor-switcher\src\main.py"
    ```
 5. 「作業フォルダー」を設定：
    ```
-   C:\Users\UserName\Documents\net-adaptor-change
+   C:\Users\UserName\Documents\network-adaptor-switcher
    ```
 
 ### 操作方法
@@ -154,7 +154,7 @@ pytest --cov=src --cov-report=html
 ### プロジェクト構造
 
 ```
-net-adaptor-change/
+network-adaptor-switcher/
 ├── src/
 │   ├── __init__.py
 │   ├── main.py              # エントリーポイント
@@ -214,8 +214,8 @@ net-adaptor-change/
 
 ### バグ報告・機能要望
 
-- [Issue報告](https://github.com/UserName/net-adaptor-change/issues)
-- [Discussions](https://github.com/UserName/net-adaptor-change/discussions)
+- [Issue報告](https://github.com/roflsunriz/network-adaptor-switcher/issues)
+- [Discussions](https://github.com/roflsunriz/network-adaptor-switcher/discussions)
 
 ## CI/CD
 

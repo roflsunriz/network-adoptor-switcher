@@ -33,7 +33,7 @@ git commit -m "Initial commit: Network Adapter Switcher v1.0.1"
 1. GitHubにログイン
 2. 右上の「+」→「New repository」をクリック
 3. リポジトリ情報を入力：
-   - **Repository name**: `net-adaptor-change`
+   - **Repository name**: `network-adaptor-switcher`
    - **Description**: `WindowsでイーサネットとWi-Fiアダプターを排他的に切り替えるGUIツール`
    - **Public** または **Private** を選択
    - **README**, **.gitignore**, **license** は追加しない（既に存在するため）
@@ -45,7 +45,7 @@ GitHubに表示されるコマンドを実行：
 
 ```powershell
 # リモートリポジトリを追加（ユーザー名を自分のものに変更）
-git remote add origin https://github.com/UserName/net-adaptor-change.git
+git remote add origin https://github.com/roflsunriz/network-adaptor-switcher.git
 
 # メインブランチを設定
 git branch -M main
@@ -129,11 +129,11 @@ README.mdのバッジURLを実際のリポジトリURLに更新：
 
 ```powershell
 # README.mdを編集
-# UserName を自分のGitHubユーザー名に変更
+# roflsunriz を自分のGitHubユーザー名に変更
 ```
 
 ```markdown
-[![CI](https://github.com/YourUsername/net-adaptor-change/actions/workflows/ci.yml/badge.svg)](https://github.com/YourUsername/net-adaptor-change/actions/workflows/ci.yml)
+[![CI](https://github.com/roflsunriz/network-adaptor-switcher/actions/workflows/ci.yml/badge.svg)](https://github.com/roflsunriz/network-adaptor-switcher/actions/workflows/ci.yml)
 ```
 
 変更をコミット＆プッシュ：
@@ -252,4 +252,4 @@ git push origin --delete v1.0.1
 
 ---
 
-セットアップに問題がある場合は、[Discussions](https://github.com/UserName/net-adaptor-change/discussions)で質問してください。
+セットアップに問題がある場合は、[Discussions](https://github.com/roflsunriz/network-adaptor-switcher/discussions)で質問してください。

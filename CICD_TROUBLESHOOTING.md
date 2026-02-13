@@ -313,8 +313,8 @@ git tag release-1.0.0  # 形式が違う
 
 問題が解決しない場合：
 
-1. [GitHub Issues](https://github.com/UserName/net-adaptor-change/issues)で報告
-2. [Discussions](https://github.com/UserName/net-adaptor-change/discussions)で質問
+1. [GitHub Issues](https://github.com/roflsunriz/network-adaptor-switcher/issues)で報告
+2. [Discussions](https://github.com/roflsunriz/network-adaptor-switcher/discussions)で質問
 3. ワークフローログを添付してください
 
 ---
