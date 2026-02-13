@@ -1,0 +1,132 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build and Release
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Get version from tag
+      id: get_version
+      run: |
+        $version = $env:GITHUB_REF -replace 'refs/tags/v', ''
+        echo "VERSION=$version" >> $env:GITHUB_OUTPUT
+        echo "Version: $version"
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Run quality checks
+      run: |
+        Write-Host "Running quality checks..."
+        mypy src/
+        ruff check src/
+        black --check src/
+        pytest tests/ -q
+
+    - name: Build EXE
+      run: |
+        Write-Host "Building EXE..."
+        pyinstaller `
+          --name=NetworkAdapterSwitcher `
+          --onefile `
+          --windowed `
+          --clean `
+          --add-data="src;src" `
+          --hidden-import=tkinter `
+          --hidden-import=tkinter.ttk `
+          --hidden-import=tkinter.messagebox `
+          --manifest=app.manifest `
+          src\main.py
+
+    - name: Verify build
+      run: |
+        if (Test-Path "dist\NetworkAdapterSwitcher.exe") {
+          $size = (Get-Item "dist\NetworkAdapterSwitcher.exe").Length / 1MB
+          Write-Host "✓ Build successful"
+          Write-Host "  File: NetworkAdapterSwitcher.exe"
+          Write-Host "  Size: $([math]::Round($size, 2)) MB"
+        } else {
+          Write-Host "✗ Build failed"
+          exit 1
+        }
+
+    - name: Create ZIP archive
+      run: |
+        Compress-Archive -Path "dist\NetworkAdapterSwitcher.exe", "README.md", "BUILD.md" -DestinationPath "NetworkAdapterSwitcher-v${{ steps.get_version.outputs.VERSION }}-windows-x64.zip"
+
+    - name: Generate release notes
+      id: release_notes
+      run: |
+        $notes = @"
+        ## ネットワークアダプター切り替えツール v${{ steps.get_version.outputs.VERSION }}
+
+        ### 📦 ダウンロード
+
+        - **Windows 10/11 (64-bit)**: ``NetworkAdapterSwitcher-v${{ steps.get_version.outputs.VERSION }}-windows-x64.zip``
+
+        ### 🚀 使用方法
+
+        1. ZIPファイルをダウンロードして展開
+        2. ``NetworkAdapterSwitcher.exe`` を右クリック → 「管理者として実行」
+        3. GUIでイーサネット⇔Wi-Fiを切り替え
+
+        ### ⚠️ 注意事項
+
+        - Windows 10/11が必要です
+        - 管理者権限で実行する必要があります
+        - .NET FrameworkやPythonのインストールは不要です
+
+        ### 📝 変更履歴
+
+        変更内容については [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) を参照してください。
+
+        ### 🐛 問題報告
+
+        バグや改善要望は [Issues](https://github.com/${{ github.repository }}/issues) でお知らせください。
+        "@
+        
+        $notes | Out-File -FilePath release_notes.md -Encoding utf8
+        echo "RELEASE_NOTES_FILE=release_notes.md" >> $env:GITHUB_OUTPUT
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        name: v${{ steps.get_version.outputs.VERSION }}
+        body_path: ${{ steps.release_notes.outputs.RELEASE_NOTES_FILE }}
+        draft: false
+        prerelease: false
+        files: |
+          NetworkAdapterSwitcher-v${{ steps.get_version.outputs.VERSION }}-windows-x64.zip
+          dist/NetworkAdapterSwitcher.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-artifacts-v${{ steps.get_version.outputs.VERSION }}
+        path: |
+          dist/NetworkAdapterSwitcher.exe
+          NetworkAdapterSwitcher-v${{ steps.get_version.outputs.VERSION }}-windows-x64.zip
+        retention-days: 90

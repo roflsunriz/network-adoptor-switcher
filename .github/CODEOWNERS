@@ -1,0 +1,17 @@
+# Code Owners
+# これらのファイルが変更された場合、自動的にレビュー依頼が送られます
+
+# デフォルトオーナー
+* @UserName
+
+# ソースコード
+/src/ @UserName
+
+# テスト
+/tests/ @UserName
+
+# CI/CD
+/.github/ @UserName
+
+# ドキュメント
+*.md @UserName

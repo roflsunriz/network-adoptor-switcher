@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+- GitHub Actions CI/CDワークフロー
+  - 自動テスト（mypy, ruff, black, pytest）
+  - 自動EXEビルド
+  - 自動リリース作成
+- プルリクエストテンプレート
+- Issueテンプレート（バグ報告、機能要望）
+- コントリビューションガイド
+- セキュリティポリシー
+- コードオーナー設定
+- 依存関係レビューワークフロー
+
 ## [1.0.1] - 2026-02-14
 
 ### Fixed

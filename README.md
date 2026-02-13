@@ -1,5 +1,11 @@
 # ネットワークアダプター切り替えツール
 
+[![CI](https://github.com/UserName/net-adaptor-change/actions/workflows/ci.yml/badge.svg)](https://github.com/UserName/net-adaptor-change/actions/workflows/ci.yml)
+[![Release](https://github.com/UserName/net-adaptor-change/actions/workflows/release.yml/badge.svg)](https://github.com/UserName/net-adaptor-change/actions/workflows/release.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
+[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)](https://www.microsoft.com/windows)
+
 WindowsでイーサネットとWi-Fiアダプターを排他的に切り替えるGUIツールです。
 
 ## 概要
@@ -195,6 +201,45 @@ net-adaptor-change/
 
 アプリケーションの動作ログは `network_adapter_switcher.log` に保存されます。
 
+## コントリビューション
+
+貢献を歓迎します！詳細は [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。
+
+### 開発者向け情報
+
+- [コントリビューションガイド](CONTRIBUTING.md)
+- [ビルドガイド](BUILD.md)
+- [セキュリティポリシー](SECURITY.md)
+- [変更履歴](CHANGELOG.md)
+
+### バグ報告・機能要望
+
+- [Issue報告](https://github.com/UserName/net-adaptor-change/issues)
+- [Discussions](https://github.com/UserName/net-adaptor-change/discussions)
+
+## CI/CD
+
+このプロジェクトはGitHub Actionsを使用して自動テストとリリースを行っています。
+
+### 自動テスト
+
+- **型チェック**: mypy
+- **リンター**: ruff
+- **フォーマット**: black
+- **単体テスト**: pytest
+- **カバレッジ**: codecov
+
+すべてのプルリクエストは自動的にテストされます。
+
+### 自動リリース
+
+タグ（`v*.*.*`）をプッシュすると、自動的に以下が実行されます：
+
+1. コード品質チェック
+2. EXEファイルのビルド
+3. GitHubリリースの作成
+4. 成果物のアップロード
+
 ## ライセンス
 
 MIT License
@@ -202,4 +247,4 @@ MIT License
 ## 作成者
 
 - 作成日：2026年2月14日
-- バージョン：1.0.0
+- バージョン：1.0.1
